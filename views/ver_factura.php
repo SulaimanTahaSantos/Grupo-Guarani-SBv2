@@ -14,7 +14,7 @@ if (isset($_GET['factura_id']) && isset($_GET['estado'])) {
     $updateSql = "UPDATE facturacion SET estado = '$nuevoEstado' WHERE id = $factura_id";
     $mysqli->query($updateSql);
 
-    header('Location: ../ver_factura.php?id=' . $_GET['id']); 
+    header('Location: ../views/ver_factura.php?id=' . $_GET['id']); 
     exit;
 }
 
@@ -51,7 +51,7 @@ if (isset($_GET['id'])) {
     exit;
 }
 ?>
-
+<a href="../views/ver_factura.php"></a>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -143,7 +143,7 @@ if (isset($_GET['id'])) {
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($factura['observaciones']); ?></td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($factura['codigo']); ?></td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                           <a href="../ver_factura.php?id=<?php echo $cliente_id; ?>&estado=<?php echo $estado; ?>&factura_id=<?php echo $factura['id']; ?>" class="text-indigo-600 hover:text-indigo-900">
+                           <a href="../views/ver_factura.php?id=<?php echo $cliente_id; ?>&estado=<?php echo $estado; ?>&factura_id=<?php echo $factura['id']; ?>" class="text-indigo-600 hover:text-indigo-900">
                                Cambiar estado
                            </a>
                            <a href="../controllers/descargar_pdf.php?factura_id=<?php echo $factura['id']; ?>" class="ml-2 text-blue-600 hover:text-blue-800">Descargar PDF</a>
